@@ -1,5 +1,5 @@
 ﻿# StockPriceSpider
-深圳证券交易所历史数据采集
+深圳证券交易所历史数据采集(excel附件)
 
 #### 网站地址：http://www.szse.cn/market/trend/index.html
 
