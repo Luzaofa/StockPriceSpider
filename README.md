@@ -1,11 +1,13 @@
 ﻿# StockPriceSpider
 深圳证券交易所历史数据采集
 
-##### 用户只需配置如下数据即可：
+#### 网站地址：http://www.szse.cn/market/trend/index.html
 
-###### start = '2019-01-23'  开始日期
-###### end = '2019-01-23'    结束日期
-###### csvfile = 'mycsv.csv' 存储csv文件名
+#### 用户只需配置如下数据即可：
+
+##### start = '2019-01-23'  开始日期
+##### end = '2019-01-23'    结束日期
+##### csvfile = 'mycsv.csv' 存储csv文件名
 
 
 ##### 下载网页excel附件：
