@@ -7,7 +7,7 @@ import time
 import types
 import copy_reg
 import multiprocessing as mp
-from urllib.request import urlopen
+import urllib
 import os
 import pandas as pd
 
@@ -42,15 +42,17 @@ class MySpider(object):
         '''
             保存网页excel文件到本地  'XX.xlsx'
         '''
-        with urlopen(url) as response:
-            with open(filename, 'wb') as f:
-                f.write(response.read())
-
+        response = urllib.urlopen(url)
+        with open(filename, 'wb') as f:
+            f.write(response.read())
     def analysis_excel(self, filename):
         '''
             excel数据解析,获取指定列数据
         '''
-        data = pd.read_excel(filename, sheet_name=0, header=0, dtype=object)
+        data = pd.read_excel(filename, sheet_name=0, header=0, encoding='gbk')
+        columns_ = ['交易日期', '证券代码', '证券简称', '前收', '今收', '升跌(%)', '成交金额(元)', '市盈率']
+        data.columns = columns_
+        data["证券代码"] = [str(i).zfill(6) for i in data["证券代码"]]
         result = data[['证券代码', '前收', '今收']]
         return result
 
